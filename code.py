@@ -1,13 +1,10 @@
 
-# AUTONOMOUS CLEANING STRATEGY PLANNER
-
-
 import heapq
 import random
 import time
 
+# -------------------- CO1 --------------------
 # PEAS MODEL
-
 
 print("\n PEAS MODEL")
 
@@ -18,7 +15,6 @@ print("Sensors      : Obstacle detector")
 
 
 # GRID ENVIRONMENT
-
 
 grid = [
     [0, 0, 0, 0, 0],
@@ -35,7 +31,6 @@ START = (0, 0)
 GOAL = (4, 4)
 
 # DISPLAY GRID
-
 
 def display_grid(path=None):
 
@@ -57,7 +52,6 @@ def display_grid(path=None):
 
 # VALID MOVE
 
-
 def is_valid(x, y):
 
     return (
@@ -67,7 +61,6 @@ def is_valid(x, y):
     )
 
 # NEIGHBOR FUNCTION
-
 
 def get_neighbors(node):
 
@@ -93,6 +86,7 @@ def get_neighbors(node):
     return neighbors
 
 
+# -------------------- CO2 --------------------
 # A* SEARCH ALGORITHM
 
 def heuristic(a, b):
@@ -134,6 +128,8 @@ def astar():
 
     return None
 
+
+# -------------------- CO3 --------------------
 # CSP CONSTRAINT CHECKING
 
 def constraint_check(path):
@@ -148,8 +144,9 @@ def constraint_check(path):
     return True
 
 
-# UTILITY FUNCTION
+# -------------------- CO4 --------------------
 
+# UTILITY FUNCTION
 
 def utility_function(path):
 
@@ -162,6 +159,7 @@ def utility_function(path):
     return utility
 
 
+# -------------------- CO5 --------------------
 # MARKOV MODEL
 
 def markov_next_state(current_state):
@@ -174,8 +172,9 @@ def markov_next_state(current_state):
     return random.choice(transitions[current_state])
 
 
-# PERFORMANCE ANALYSIS
+# -------------------- CO6 --------------------
 
+# PERFORMANCE ANALYSIS
 
 start_time = time.time()
 
@@ -208,7 +207,6 @@ display_grid(path)
 
 # UNCERTAINTY HANDLING
 
-
 print("\n UNCERTAINTY HANDLING")
 
 state = "SAFE"
@@ -223,8 +221,7 @@ for i in range(5):
     state = next_state
 
 
-
-
+print("\n EXPLAINABLE AI")
 print("1. Grid environment created.")
 print("2. Path planning completed.")
 print("3. Obstacles avoided successfully.")
